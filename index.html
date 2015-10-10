@@ -3,13 +3,16 @@
 
   <head>
     <link href="http://s3.amazonaws.com/codecademy-content/courses/ltp/css/shift.css" rel="stylesheet">
-    
-    <link rel="stylesheet" href="http://s3.amazonaws.com/codecademy-content/courses/ltp/css/bootstrap.css">
+     <link rel="stylesheet" href="http://s3.amazonaws.com/codecademy-content/courses/ltp/css/bootstrap.css">
     <link rel="stylesheet" href="main.css">
 
   <style>
+  .nav{
+    background-color: #5bc0de;
+  }
+
   .nav a {
-  color: #5a5a5a;
+  color: #fff;
   font-size: 11px;
   font-weight: bold;
   padding: 14px 10px;
@@ -21,10 +24,10 @@
 }
 
 .jumbotron {
-  background-image: url(IMG_1160.jpg); 
   height: 500px;
   background-repeat: no-repeat;
   background-size: 1500px 500px;
+  background-color: #5bc0de;
 }
 
 .jumbotron .container {
@@ -32,15 +35,28 @@
   top:100px;
 }
 
+.jumbotron img{
+  display: block;
+  margin: 0 auto;
+  position: relative;
+  bottom: 90px;
+}
+
 .jumbotron h1 {
   color: #fff;
-  font-size: 48px;  
+  font-size: 20px;  
   font-family: 'Shift', sans-serif;
   font-weight: bold;
 }
 
+.jumbotron span{
+  font-size: 50px;
+  color: #fff;
+
+}
+
 .jumbotron p {
-  font-size: 20px;
+  font-size: 30px;
   color: #fff;
 }
 
@@ -63,6 +79,28 @@ button{
   margin: 0 auto;
 }
 
+.typed-cursor{
+    opacity: 1;
+    -webkit-animation: blink 0.7s infinite;
+    -moz-animation: blink 0.7s infinite;
+    animation: blink 0.7s infinite;
+}
+@keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+@-webkit-keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+@-moz-keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+
 </style>
 
   </head>
@@ -71,35 +109,36 @@ button{
     <div class="nav">
       <div class="container">
         <ul class="pull-left">
-          <li><a href="Homepage.html">Home </a></li>
+          <li><a href="index.html">Home </a></li>
         </ul>
         <ul class="pull-right">
           <li><a href="About-me.html">About</a></li>
           <li><a href="Resume.html"> Resume </a></li>
-          <li><a href="Coursework.html">Coursework </a></li>
+          <li><a href="Coursework.html">Student Resources!</a></li>
         </ul>
       </div>
     </div>
 
     <div class="jumbotron">
       <div class="container">
-        <h1><em>"Believe you can and you're halfway there"</em></h1>
-        <p style = "text-align:center">- Theodore Roosevelt.</p>
-        <a href="#"></a>
+        <img src="IMG_1190.jpg" alt ="Picture of ME! :D" class="img-circle" width = "200" height = "200">
+        <div style ="text-align: center;">
+        <span class="typeme"></span>
+        </div>
       </div>
-    </div> 
+    </div>
 
     <div class="learn-more">
 	  <div class="container">
 		<div class="row">
 	      <div class="col-md-4">
-			<h3>Computer Skills</h3>
-			<p>I started coding my first year at UC Berkeley. Frustrating and exhilirating are probably the most accurate words I have to describe it.  </p>
-			<p><button type="button" class = "btn btn-default"><a href="#">What I've learned so far</a></button></p>
+			<h3>Student Resources</h3>
+			<p>I started coding my first year at UC Berkeley. I love teaching and providing students with the resources and tools necessary to learn CS concepts and write elegant algorithms  </p>
+			<p><button type="button" class = "btn btn-default"><a href="#">Learn some concepts!</a></button></p>
 	      </div>
 		  <div class="col-md-4">
 			<h3>Projects</h3>
-			<p>It's my goal this semester to be periodically building and uploading side projectsI'll be updating my github with miscellaneous python (or other languages) projects.</p>
+			<p>It's my goal this semester to be periodically building and uploading side projects. Stay tuned!</p>
 			<p><button type = "button" class = "btn btn-default"><a href="https://github.com/mikomwang">See my Work!</a></button></p>
 		  </div>
 		  <div class="col-md-4">
@@ -111,7 +150,8 @@ button{
 	    </div>
 	    </div>
 
-
-
+      <script src="js/jquery-1.11.3.js"></script>
+      <script src= "js/typed.js"></script>
+      <script src="js/script.js"></script>
   </body>
 </html>
