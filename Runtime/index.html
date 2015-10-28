@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Runtime</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/simple-sidebar.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+    li {
+        font-size: 25px;
+    }
+
+    #sidebar-wrapper{
+        background-color: #66CCFF;
+    }
+
+    p{
+        font-size: 20px;
+        font-family: rockwell;
+    }
+
+    var{
+        color: #FF6666;
+    }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="#">
+                        <font color ="white"> CS61A Resources </font>
+                    </a>
+                </li>
+                <li>
+                    <a class = "smoothScroll" href="#overview"><font color = "white">Overview</font></a>
+                </li>
+                <li>
+                    <a class = "smoothScroll" href="#tips"><font color = "white">Tips</font></a>
+                </li>
+                <li>
+                    <a class = "smoothScroll" href="#problems"><font color = "white">Problems</font></a>
+                </li>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 style="text-align:center; font-family:rockwell" id = "overview"><u>RUNTIME</u></h1>
+                        <br />
+                        <p>Runtime (Synonymous with 'Orders of Growth'), is the term used to describe the efficiency of various algorithms. In 61A, you'll develop an intuitive sense for how much it "costs" to run through a particular function using Big-O notation.</p>
+
+                        <p> If you've regularly attended discussion *cough please go cough*, you'll probably be familiar with the pertinent common orders of runtimes. If not, here's some review. They're listed from fastest runtime to slowest: 
+                        <p style = "text-align: center; white-space: pre"><b>O(1)   Constant
+O(logN)   Logarithmic
+O(N)   Linear
+O(N^2), O(N^3), etc...   Polynomial time
+O(2^N)   Exponential Time</b>
+                        </p>
+                        <p> Sometimes you'll even run into some runtimes that are combinations or variations of the common orders, like O(NlogN), O(N^N), O(4^N), or even O(N!). Scared yet? You probably won't need to be too concerned with some crazy variation (until 61B that is :^) ), but if it comes up on an exam, hopefully you'll have a better sense of identifying the tricky ones after you browse some of the problems listed below. Let's start by looking at a simple problem: </p>
+<pre> def printer(<var>N</var>):
+     for <var>i</var> in range(<var>N</var>):
+        print(<var>i</var>)</pre>
+                        <p id ="tips"> As a rule of thumb, when analyzing algorithms, you'll want to note how many times you "perform an operation". This includes things like making recursive calls and using a 'for' loop to traverse an array,  In this case, you're printing each item in a list of N size. Of course you'd have to then you iterate through a list of N items, and proceed to print out each item. In this case, you'll go through N items, so you can denote that as a runtime of N. </p>
+                        <p> What about this problem? </p>
+<pre> def foodEater(<var>Array</var>):
+      <var>bites</var> = 0
+      <var>calories</var> = 0
+      for <var>x</var> in <var>Array</var>:
+</pre>
+
+
+
+
+                        <p> Drop EVERYTHING. (okay, not everything. Pick it back up.)</p>
+                        <p> There are certain guidelines that will generalize runtime. </p>
+                        <p> Drop the Constants </p>
+                        <p id="problems"> Drop the non-dominant runtimes </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Menu Toggle Script -->
+    <script>
+    $(function() {
+  // This will select everything with the class smoothScroll
+  // This should prevent problems with carousel, scrollspy, etc...
+  $('.smoothScroll').click(function() {
+    if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+      if (target.length) {
+        $('html,body').animate({
+          scrollTop: target.offset().top
+        }, 1000); // The number here represents the speed of the scroll in milliseconds
+        return false;
+      }
+    }
+  });
+});
+    </script>
+
+</body>
+
+</html>
