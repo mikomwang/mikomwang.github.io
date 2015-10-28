@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -39,6 +40,10 @@
 
     var{
         color: #FF6666;
+    }
+
+    h1{
+        font-family: rockwell;
     }
 
     </style>
@@ -90,21 +95,28 @@ O(2^N)   Exponential Time</b>
 <pre> def printer(<var>N</var>):
      for <var>i</var> in range(<var>N</var>):
         print(<var>i</var>)</pre>
-                        <p id ="tips"> As a rule of thumb, when analyzing algorithms, you'll want to note how many times you "perform an operation". This includes things like making recursive calls and using a 'for' loop to traverse an array,  In this case, you're printing each item in a list of N size. Of course you'd have to then you iterate through a list of N items, and proceed to print out each item. In this case, you'll go through N items, so you can denote that as a runtime of N. </p>
-                        <p> What about this problem? </p>
-<pre> def foodEater(<var>Array</var>):
+                        <p> As a rule of thumb, when analyzing algorithms, you'll want to note how many times you "perform an operation". This includes things like making recursive calls and using a 'for' loop to traverse an array,  In this case, you're printing each item in a list of N size. Of course you'd have to then you iterate through a list of N items, and proceed to print out each item. In this case, you'll go through N items, so you can denote that as a runtime of N. </p>
+                        <p> What about this problem? It's trickier - It takes an <b>array of integers</b> (let's pretend that they represent calories) as an input and prints out how many bites of food you took as well as how many calories you consumed.</p>
+<pre> def foodEater(<var>FoodCalories</var>):
       <var>bites</var> = 0
-      <var>calories</var> = 0
-      for <var>x</var> in <var>Array</var>:
+      <var>calsconsumed</var> = 0
+      for <var>x</var> in <var>FoodCalories</var>:
+          <var>bites</var> += 1
+      for <var>y</var> in <var>FoodCalories</var>:
+          <var>calsconsumed</var> += y
+      print("I took" + <var>bites</var> + "bites of food and consumed" + <var>calsconsumed</var> + "calories, yikes!")
 </pre>
-
-
-
-
-                        <p> Drop EVERYTHING. (okay, not everything. Pick it back up.)</p>
-                        <p> There are certain guidelines that will generalize runtime. </p>
-                        <p> Drop the Constants </p>
-                        <p id="problems"> Drop the non-dominant runtimes </p>
+                        <p> In this code, you can see that there are two "for" loops. Take time to convince yourself that the total runtime would be O(N+N), or O(2N). However, the fact that we're iterating through two separate for loops doesn't affect the OVERALL runtime, so we can generalize this cost to O(N). This brings me to my next point...</p>
+                            <br/>
+                        <h1 style = "text-align: center" id="tips"><u>TIPS</u> </h1>
+                        <p><i class="fa fa-hand-o-right"></i> Drop EVERYTHING. <font size = "0">(Well, okay, not everything. Pick it back up or else we'll get ants.)</font></p>
+                        <p><i class="fa fa-hand-o-right"></i> Drop the constants. 
+                            <p style = "text-indent:50px"> O(5N) will simplify to O(N)</p> 
+                            <p style = "text-indent:50px">O(999) simplifies to O(1).</p>
+                        </p>
+                        <p><i class="fa fa-hand-o-right"></i>  Drop the non-dominant runtimes </p>
+                            <p style = "text-indent:50px"> O(3N^3 + N^2 + 9) is upper bounded by the big-O time of just O(N^3).
+                            <p style = "text-indent:50px"> O(N + N + N) can is O(3N), so it'll simplify to O(N^3).
                     </div>
                 </div>
             </div>
