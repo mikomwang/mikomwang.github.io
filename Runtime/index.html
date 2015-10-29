@@ -108,17 +108,25 @@ O(2^N)   Exponential Time</b>
 </pre>
                         <p> In this code, you can see that there are two "for" loops. Take time to convince yourself that the total runtime would be O(N+N), or O(2N). However, the fact that we're iterating through two separate for loops doesn't affect the OVERALL runtime, so we can generalize this cost to O(N). This brings me to my next point...</p>
                             <br/>
-                            
+
                         <h1 style = "text-align: center" id="tips"><u>TIPS</u> </h1>
-                        <p><i class="fa fa-hand-o-right"></i><strike> Drop EVERYTHING.</strike><font size = "0">(Well, okay, not everything. Pick it back up or else we'll get ants.)</font></p>
-                        <p><i class="fa fa-hand-o-right"></i> Drop the constants. 
+                        
+                        <p><i class="fa fa-hand-o-right"></i> Drop the constants.</p>
                             <p style = "text-indent:50px"> O(5N) will simplify to O(N)</p> 
                             <p style = "text-indent:50px">O(999) simplifies to O(1).</p>
-                        </p>
+
                         <p><i class="fa fa-hand-o-right"></i>  Drop the non-dominant runtimes </p>
                             <p style = "text-indent:50px"> O(3N^3 + N^2 + 9) is upper bounded by the big-O time of just O(N^3).</p>
                             <p style = "text-indent:50px"> O(N + N + N) can is O(3N), so it'll simplify to O(N^3).</p>
                         <br/>
+
+                        <p><i class="fa fa-hand-o-right"></i> CORRELATIONS <font size = 2> WARNING: do NOT always rely on this to hold true, but it's a good way to guess if you really can't figure out what the runtime is.</p>
+                            <p style = "text-indent:50px"> <b>"for"</b> loop: If iterating through the entire range of a number or an array of N-size, it will be O(N) runtime.</p>
+                            <p style = "text-indent:50px"> <b>Double-nested "for"</b> loop: O(N^2)</p>
+                            <p style = "text-indent:50px"> <b>Triple-nested "for"</b> loop: O(N^3), etc..</p>
+                            <p style = "text-indent:50px"> <b>Trees</b> with N leaves can usually be generalized as (N^d) where d is the depth of the tree.</p>
+                            <p style = "text-indent:50px"><b> Binary Trees </b>are usually (2^N), since they have two leaves for each tree.</p>
+                            <p style = "text-indent:50px"> <b>Binary Search</b>, or instances where you find a recursive call on half of the elements at a time: log(N)</p>
 
                         <h1 style = "text-align: center" id="problems"><u> PROBLEMS</u></h1>
                         <p> COMING SOON </p>
