@@ -3,6 +3,7 @@
 
 <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <script src="sweetalert/dist/sweetalert.min.js"></script> <link rel="stylesheet" type="text/css" href="sweetalert/dist/sweetalert.css">
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -45,6 +46,19 @@
     h1{
         font-family: rockwell;
     }
+
+    button{
+  background-color: #66CCFF;
+  color: white;
+  border: none;
+  box-shadow: none;
+  font-size: 15px;
+  font-weight: 500;
+  font-weight: 600;
+  border-radius: 3px;
+  padding: 10px 30px;
+  margin: 15px 5px 0 5px;
+  cursor: pointer; }
 
     </style>
 
@@ -114,12 +128,11 @@ O(2^N)   Exponential Time</b>
                         <p><i class="fa fa-hand-o-right"></i> Drop the constants.</p>
                             <p style = "text-indent:50px"> O(5N) will simplify to O(N)</p> 
                             <p style = "text-indent:50px">O(999) simplifies to O(1).</p>
-
+                        <br/>
                         <p><i class="fa fa-hand-o-right"></i>  Drop the non-dominant runtimes </p>
                             <p style = "text-indent:50px"> O(3N^3 + N^2 + 9) is upper bounded by the big-O time of just O(N^3).</p>
                             <p style = "text-indent:50px"> O(N + N + N) can is O(3N), so it'll simplify to O(N^3).</p>
                         <br/>
-
                         <p><i class="fa fa-hand-o-right"></i> CORRELATIONS <font size = 2> WARNING: do NOT always rely on this to hold true, but it's a good way to guess if you really can't figure out what the runtime is.</p>
                             <p style = "text-indent:50px"> <b>"for"</b> loop: If iterating through the entire range of a number or an array of N-size, it will be O(N) runtime.</p>
                             <p style = "text-indent:50px"> <b>Double-nested "for"</b> loop: O(N^2)</p>
@@ -129,7 +142,31 @@ O(2^N)   Exponential Time</b>
                             <p style = "text-indent:50px"> <b>Binary Search</b>, or instances where you find a recursive call on half of the elements at a time: log(N)</p>
 
                         <h1 style = "text-align: center" id="problems"><u> PROBLEMS</u></h1>
-                        <p> COMING SOON </p>
+<p> This code takes in an integer N, and outputs a number.
+<pre> def splitter(<var>n</var>):
+    if <var>n</var> <= 0:
+        return 2
+    return splitter(<var>n</var>-1) + splitter(<var>n</var>-1)
+</pre>
+<div class="splitAns">
+    <button>Answer</button>
+</div>
+</br>
+<p> This code in a balanced binary search tree, and returns the value of all the nodes in the tree. </p>
+<pre> def treeSum(<var>tree</var>): 
+    if <var>tree</var> == null:
+        return 0
+    else: 
+        return treeSum(<var>tree</var>.left) + <var>tree</var>.value + treeSum(<var>tree</var>.right) 
+</pre>
+<div class ="treeAns">
+    <button>Answer</button>
+</div>
+
+
+
+
+
                     </div>
                 </div>
             </div>
@@ -164,6 +201,17 @@ O(2^N)   Exponential Time</b>
   });
 });
     </script>
+
+    <script>
+    document.querySelector('div.splitAns button').onclick = function(){
+    swal("O(2^N)");
+    };
+
+    document.querySelector('div.treeAns button').onclick = function(){
+    swal("O(N)");
+    };
+    </script>
+
 
 </body>
 
