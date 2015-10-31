@@ -3,6 +3,7 @@
 
 <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
     <script src="sweetalert/dist/sweetalert.min.js"></script> <link rel="stylesheet" type="text/css" href="sweetalert/dist/sweetalert.css">
 
     <meta charset="utf-8">
@@ -31,12 +32,12 @@
     }
 
     #sidebar-wrapper{
-        background-color: #66CCFF;
+        background-color: #0066CC;
     }
 
     p{
         font-size: 20px;
-        font-family: rockwell;
+        font-family: 'Open Sans', sans-serif;
     }
 
     var{
@@ -110,7 +111,7 @@ O(2^N)   Exponential Time</b>
      for <var>i</var> in range(<var>N</var>):
         print(<var>i</var>)</pre>
                         <p> As a rule of thumb, when analyzing algorithms, you'll want to note how many times you "perform an operation". This includes things like making recursive calls and using a 'for' loop to traverse an array,  In this case, you're printing each item in a list of N size. Of course you'd have to then you iterate through a list of N items, and proceed to print out each item. In this case, you'll go through N items, so you can denote that as a runtime of N. </p>
-                        <p> What about this problem? It's trickier - It takes an <b>array of integers</b> (let's pretend that they represent calories) as an input and prints out how many bites of food you took as well as how many calories you consumed.</p>
+                        <p> What about this problem? It's trickier - It takes an <b>array of integers</b> (let's pretend that each integer value in this array represents calories of food you ate) as an input and prints out how many bites of food you took as well as how many calories you consumed.</p>
 <pre> def foodEater(<var>FoodCalories</var>):
       <var>bites</var> = 0
       <var>calsconsumed</var> = 0
@@ -143,16 +144,17 @@ O(2^N)   Exponential Time</b>
 
                         <h1 style = "text-align: center" id="problems"><u> PROBLEMS</u></h1>
 <p> This code takes in an integer N, and outputs a number.
-<pre> def splitter(<var>n</var>):
-    if <var>n</var> <= 0:
+<pre> def splitter(<var>N</var>):
+    if <var>N</var> <= 0:
         return 2
-    return splitter(<var>n</var>-1) + splitter(<var>n</var>-1)
+    return splitter(<var>N</var>-1) + splitter(<var>N</var>-1)
 </pre>
 <div class="splitAns">
     <button>Answer</button>
 </div>
 </br>
-<p> This code in a balanced binary search tree, and returns the value of all the nodes in the tree. </p>
+
+<p> This code takes in a balanced binary search tree, and returns the summation of all the nodes in the tree. </p>
 <pre> def treeSum(<var>tree</var>): 
     if <var>tree</var> == null:
         return 0
@@ -162,6 +164,21 @@ O(2^N)   Exponential Time</b>
 <div class ="treeAns">
     <button>Answer</button>
 </div>
+</br>
+
+<p> This code computes the power of A^B. Assumes B > 0. </p>
+<pre> def powers(<var>A</var>, <var>B</var>):
+    if <var>B</var> == 0:
+        return 1
+    else:
+        return <var>A</var> * powers(<var>A</var>, <var>B</var>-1)
+</pre>
+<div class ="powerAns">
+    <button>Answer</button>
+</div>
+</br>
+
+<p></p>
 
 
 
@@ -204,11 +221,15 @@ O(2^N)   Exponential Time</b>
 
     <script>
     document.querySelector('div.splitAns button').onclick = function(){
-    swal("O(2^N)");
+    swal("The runtime is O(2^N) because you're recursively calling the function twice with N-1 until you get to the base case.");
     };
 
     document.querySelector('div.treeAns button').onclick = function(){
-    swal("O(N)");
+    swal("The runtime is O(N). Don't get stuck in the trap of thinking that trees are automatically O(2^N). This algorithm traverses the entire tree, so the runtime is dependent on how many nodes are in the tree!");
+    };
+
+    document.querySelector('div.powerAns button').onclick = function(){
+    swal("The runtime is O(B). In situations like these with multiple variables, it's better to be specific with the variable the runtime is dependent on. Ask yourself: 'Would using N as a variable work here? Would it correspond to A or B?' If it turns out to be ambiguous, opt to use more specific variables.");
     };
     </script>
 
