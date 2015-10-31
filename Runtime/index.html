@@ -5,6 +5,11 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
     <script src="sweetalert/dist/sweetalert.min.js"></script> <link rel="stylesheet" type="text/css" href="sweetalert/dist/sweetalert.css">
+    <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+    </script>
+    <script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -97,16 +102,17 @@
                     <div class="col-lg-12">
                         <h1 style="text-align:center; font-family:rockwell" id = "overview"><u>RUNTIME</u></h1>
                         <br />
-                        <p>Runtime (Synonymous with 'Orders of Growth'), is the term used to describe the efficiency of various algorithms. In 61A, you'll develop an intuitive sense for how much it "costs" to run through a particular function using Big-O notation.</p>
+                        <p>Runtime (Synonymous with 'Orders of Growth'), is the term used to describe the efficiency of various algorithms. In 61A, you'll develop an intuitive sense for how much it "costs" to run through a particular function using Big-O/Theta (for our purposes, we'll treat these as synonymous terms) notation.</p>
 
-                        <p> If you've regularly attended discussion *cough please go cough*, you'll probably be familiar with the pertinent common orders of runtimes. If not, here's some review. They're listed from fastest runtime to slowest: 
-                        <p style = "text-align: center; white-space: pre"><b>O(1)   Constant
-O(logN)   Logarithmic
-O(N)   Linear
-O(N^2), O(N^3), etc...   Polynomial time
-O(2^N)   Exponential Time</b>
+                        <p> If you've regularly attended discussion *cough* <b>please go</b> *cough*, you'll probably be familiar with the pertinent common orders of runtimes. If not, here's some review. They're listed from fastest runtime to slowest: 
+                        <p style = "white-space: pre">
+\(\Theta(1)\)                                       <b>Constant</b>
+\(\Theta(log(N))\)                           <b>Logarithmic</b>
+\(\Theta(N)\)                                     <b>Linear</b>
+\(\Theta(N^2), \Theta(N^3)\), <b>etc...</b>        <b>Polynomial time</b>
+\(\Theta(2^N)\)                                    <b>Exponential Time</b>
                         </p>
-                        <p> Sometimes you'll even run into some runtimes that are combinations or variations of the common orders, like O(NlogN), O(N^N), O(4^N), or even O(N!). Scared yet? You probably won't need to be too concerned with some crazy variation (until 61B that is :^) ), but if it comes up on an exam, hopefully you'll have a better sense of identifying the tricky ones after you browse some of the problems listed below. Let's start by looking at a simple problem: </p>
+                        <p> Sometimes you'll even run into some runtimes that are combinations or variations of the common orders, like \(\Theta(Nlog(N)), \Theta(N^N), \Theta(4^N)\), or even \(\Theta(N!)\). Scared yet? You probably won't need to be too concerned with some crazy variation (until 61B that is :^) ), but if it comes up on an exam, hopefully you'll have a better sense of identifying the tricky ones after you browse some of the problems listed below. Let's start by looking at a simple problem: </p>
 <pre> def printer(<var>N</var>):
      for <var>i</var> in range(<var>N</var>):
         print(<var>i</var>)</pre>
@@ -121,26 +127,27 @@ O(2^N)   Exponential Time</b>
           <var>calsconsumed</var> += y
       print("I took" + <var>bites</var> + "bites of food and consumed" + <var>calsconsumed</var> + "calories, yikes!")
 </pre>
-                        <p> In this code, you can see that there are two "for" loops. Take time to convince yourself that the total runtime would be O(N+N), or O(2N). However, the fact that we're iterating through two separate for loops doesn't affect the OVERALL runtime, so we can generalize this cost to O(N). This brings me to my next point...</p>
+                        <p> In this code, you can see that there are two "for" loops. Take time to convince yourself that the total runtime would be \(\Theta(N+N)\), or \(\Theta(2N)\). However, the fact that we're iterating through two separate for loops doesn't affect the OVERALL runtime, so we can generalize this cost to \(
+                        \Theta(N)\). Cue cool topic transition...</p>
                             <br/>
 
                         <h1 style = "text-align: center" id="tips"><u>TIPS</u> </h1>
                         
                         <p><i class="fa fa-hand-o-right"></i> Drop the constants.</p>
-                            <p style = "text-indent:50px"> O(5N) will simplify to O(N)</p> 
-                            <p style = "text-indent:50px">O(999) simplifies to O(1).</p>
+                            <p style = "text-indent:50px"> \(\Theta(5N)\) will simplify to \(\Theta(N)\)</p> 
+                            <p style = "text-indent:50px">\(\Theta(999)\) simplifies to \(\Theta(1)\).</p>
                         <br/>
                         <p><i class="fa fa-hand-o-right"></i>  Drop the non-dominant runtimes </p>
-                            <p style = "text-indent:50px"> O(3N^3 + N^2 + 9) is upper bounded by the big-O time of just O(N^3).</p>
-                            <p style = "text-indent:50px"> O(N + N + N) can is O(3N), so it'll simplify to O(N^3).</p>
+                            <p style = "text-indent:50px"> \(\Theta(3N^3 + N^2 + 9)\) is upper bounded by \(\Theta(N^3)\).</p>
+                            <p style = "text-indent:50px"> \(\Theta(N + N + N)\) is \(\Theta(3N)\), so it'll simplify to \(\Theta(N)\).</p>
                         <br/>
                         <p><i class="fa fa-hand-o-right"></i> CORRELATIONS <font size = 2> WARNING: do NOT always rely on this to hold true, but it's a good way to guess if you really can't figure out what the runtime is.</p>
-                            <p style = "text-indent:50px"> <b>"for"</b> loop: If iterating through the entire range of a number or an array of N-size, it will be O(N) runtime.</p>
-                            <p style = "text-indent:50px"> <b>Double-nested "for"</b> loop: O(N^2)</p>
-                            <p style = "text-indent:50px"> <b>Triple-nested "for"</b> loop: O(N^3), etc..</p>
-                            <p style = "text-indent:50px"> <b>Trees</b> with N leaves can usually be generalized as (N^d) where d is the depth of the tree.</p>
-                            <p style = "text-indent:50px"><b> Binary Trees </b>are usually (2^N), since they have two leaves for each tree.</p>
-                            <p style = "text-indent:50px"> <b>Binary Search</b>, or instances where you find a recursive call on half of the elements at a time: log(N)</p>
+                            <p style = "text-indent:50px"> <b>"for"</b> loop: If iterating through the entire range of a number or an array of N-size, it will be \(\Theta(N)\)</p>
+                            <p style = "text-indent:50px"> <b>Double-nested "for"</b> loop: \(\Theta(N^2)\)</p>
+                            <p style = "text-indent:50px"> <b>Triple-nested "for"</b> loop: \(\Theta(N^3)\), etc..</p>
+                            <p style = "text-indent:50px"> <b>Trees</b> with N leaves can usually be generalized as \(\Theta(N^d)\) where d is the depth of the tree.</p>
+                            <p style = "text-indent:50px"><b> Binary Trees </b>are usually \(\Theta(2^N)\), since they have two leaves for each tree.</p>
+                            <p style = "text-indent:50px"> <b>Binary Search</b>, or instances where you find a recursive call on half of the elements at a time: \(\Theta(log(N))\)</p>
 
                         <h1 style = "text-align: center" id="problems"><u> PROBLEMS</u></h1>
 <p> This code takes in an integer N, and outputs a number.
@@ -166,7 +173,7 @@ O(2^N)   Exponential Time</b>
 </div>
 </br>
 
-<p> This code computes the power of A^B. Assumes B > 0. </p>
+<p> This code computes the power of \(A^B\). Assumes \(B \ge 0\). </p>
 <pre> def powers(<var>A</var>, <var>B</var>):
     if <var>B</var> == 0:
         return 1
@@ -178,8 +185,49 @@ O(2^N)   Exponential Time</b>
 </div>
 </br>
 
-<p></p>
+<p> This code computes the remainder of \(A \over B\) (aka A % B). Assumes \(B \gt 0 \).</p>
+<pre> def remainder(<var>A</var> , <var>B</var>):
+    div = <var>A</var> // <var>B</var>
+    return <var>A</var> - div * <var>B</var>
+</pre>
+<div class ="remainderAns">
+    <button>Answer</button>
+</div>
+</br>
 
+<p> The following code computes the integer square root of a number. If the number is not a perfect square, then it returns -1. It does this by a process called successive guessing. What is its runtime?</p>
+<pre> def sqrooter(<var>N</var>):
+    return sqrt_helper(<var>N</var>, 1, <var>N</var>)
+
+ def sqrt_helper(<var>N</var>, <var>min</var>, <var>max</var>):
+    if <var>max</var> < <var>min</var>: 
+        return -1
+    guess = (<var>min</var> + <var>max</var>) // 2
+    if (guess * guess) == <var>N</var>:
+        return guess       // found it!
+    elif (guess * guess) < <var>N</var>:
+        return sqrt_helper(<var>N</var>, guess + 1, <var>max</var>)  // Try a higher guess
+    else: 
+        return sqrt_helper(<var>N</var>, 1, guess - 1)    // Try a lower guess
+</pre>
+<div class ="sqrtAns">
+    <button>Answer</button>
+</div>
+</br>
+
+<p> This code functions similarly to the one above, it's just written differently. What is it's runtime? </p>
+<pre> def sqrooter(<var>N</var>):
+    guess = 1
+    while (guess * guess) <= <var>N</var>:
+        if (guess * guess) == <var>N</var>:
+            return guess
+        guess += 1
+    return -1
+</pre>
+<div class ="sqrt2Ans">
+    <button>Answer</button>
+</div>
+</br>
 
 
 
@@ -211,7 +259,7 @@ O(2^N)   Exponential Time</b>
       if (target.length) {
         $('html,body').animate({
           scrollTop: target.offset().top
-        }, 1000); // The number here represents the speed of the scroll in milliseconds
+        }, 500); // The number here represents the speed of the scroll in milliseconds
         return false;
       }
     }
@@ -230,6 +278,18 @@ O(2^N)   Exponential Time</b>
 
     document.querySelector('div.powerAns button').onclick = function(){
     swal("The runtime is O(B). In situations like these with multiple variables, it's better to be specific with the variable the runtime is dependent on. Ask yourself: 'Would using N as a variable work here? Would it correspond to A or B?' If it turns out to be ambiguous, opt to use more specific variables.");
+    };
+
+    document.querySelector('div.remainderAns button').onclick = function(){
+    swal("The runtime is O(1). The runtime doesn't depend on how large A or B is.");
+    };
+
+    document.querySelector('div.sqrtAns button').onclick = function(){
+    swal("The runtime is O(log N). Every time the helper function is called recursively, it's cutting all the possible square root values by half. Think of the algorithm as essentially doing a binary search to find the square root.");
+    };
+
+    document.querySelector('div.sqrt2Ans button').onclick = function(){
+    swal("The runtime is O(sqrt(N)). It's a straightforward loop that stops when guess * guess > N.");
     };
     </script>
 
