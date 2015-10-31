@@ -229,6 +229,20 @@
 </div>
 </br>
 
+<p> This code takes in an integer and returns the summation of the digits. </p>
+<pre> def digitizer(<var>N</var>):
+    sum = 0
+    if <var>N</var> < 0:
+        <var>N</var> *= -1
+    while <var>N</var> > 0:
+        sum += <var>N</var> % 10
+        <var>N</var> = <var>N</var> // 10
+    return sum
+</pre> 
+<div class ="digitizerAns">
+    <button>Answer</button>
+</div>
+</br>
 
 
 
@@ -290,6 +304,10 @@
 
     document.querySelector('div.sqrt2Ans button').onclick = function(){
     swal("The runtime is O(sqrt(N)). It's a straightforward loop that stops when guess * guess > N.");
+    };
+
+    document.querySelector('div.digitizerAns button').onclick = function(){
+    swal("The runtime is O(log N). The runtime will be the number of digits in the number. A number with d digits can have a value up to 10^d. If N = 10^d, then d = log N. Therefore, the runtime is O(log N)");
     };
     </script>
 
