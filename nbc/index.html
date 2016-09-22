@@ -28,6 +28,7 @@
     font-weight: 400;
 }
 
+
 </style>
 <body>
 
@@ -45,19 +46,7 @@
                 <a class="navbar-brand" href="../index.html">Michael Wang</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li>
-                        <a href="#">About</a>
-                    </li>
-                    <li>
-                        <a href="#">Services</a>
-                    </li>
-                    <li>
-                        <a href="#">Contact</a>
-                    </li>
-                </ul>
-            </div>
+            
             <!-- /.navbar-collapse -->
         </div>
         <!-- /.container -->
@@ -77,14 +66,16 @@
         <!-- /.row -->
 
         <div class= "description">
-            After my Sophomore year I went to intern at a really well-known production company called NBC. It was a really good learning experience - I got to challenge myself to learn new technologies and APIs to develop a project that was used in the video forensics pipeline on the anti-piracy team. as well as
+            After my sophomore year I went to intern at a really well-known production company called NBC. It was a really good learning experience - I got to challenge myself to learn new technologies and APIs to develop a project that was used in the video forensics pipeline on the anti-piracy team. Previously, videos were analyzed once they went through an in house program that had to undergo video preprocessing if it wasn't the right format or dimensions (took about 30 to 40 minutes per video). My custom video player was made to support multiple formats and perform screen noting and marking without any preprocessing delay (woo! efficiency). The video forensics team uses my application to locate DFMs (Discrete forensic markings) which have source correspondence labels on certain frames. This is so when a video is pirated, the source can be traced back and information for those host sites can be forwarded to the legal team. Overall, it was a fun team with awesome coworkers but the 'anti-piracy' team was pretty ironic since the entire team did a fair share of pirating <i>but that's none of my business </i>.
             <br>
             <br>
-            FAQ for wondering student: 
-            <p style = "color: gold">How did I manage to get an internship sophomore year? What was my coursework? Are you <i> super good </i> at CS? </p>
-            Ans: Nope! I got the internship the same way all sophomores get CS internships at established companies - luck and persistence (but mostly luck). After throwing my resume at a companies in periodic intervals my first and second semester of sophomore year, I was pretty much ready to give up. I applied to NBC thinking it would just be another company where my resume would get canned immediately. It was a week before school ended, but they actually set up an interview! I had two rounds and actually got an offer while I was in Japan. <br>
+            For introspective reflection and edification purposes:
+            <p style = "color: gold">How did I manage to get an internship sophomore year? What was my coursework? </p>
+            <p>Ans: Nope! I got the internship the same way all sophomores get CS internships at established companies - luck and persistence (but mostly luck). After throwing my resume at a companies in periodic intervals my first and second semester of sophomore year, getting a handful of interviews, some demotivating rejections, and mainly no responses, I was pretty much ready to give up. I applied to NBC thinking it would just be another company where my resume would get canned immediately. It was a week before school ended, but they actually set up an interview! I had two rounds and actually got an offer while I was in Japan. <br>
             My coursework consisted of just the CS declaration course requirements. No fancy upper divs yet, just good ol Java.</p>
-
+            
+            <p style = "color: gold"> What did you learn? </p>
+            <p> Ans: I really need to get better at UI/UX: I think I had to redesign my video player a total of 4 or 5 times because my mentor sometimes just straight up told me he didn't like it too much (looked okay to me tbh!). I learned so many Python GUIs! I learned how to set up and develop in virtual environments! I learned how to conquer my problems with the help of StackOverflow! I learned how to read and trudge (and cry) through open source API documentation! I learned the cool video processing capabilities of OpenCV and combined that with machine learning elements for character recognition for my video player. I learned that I enjoyed the free schedule of college life and seeing friends more than the 9-5 grind of work life (though getting paid was a plus). I learned how to take care of myself living alone. I learned how to successfuly cook fish and not fear the fucking popping oil (for the most part).
         </div>
         <br>
         <br>
@@ -92,18 +83,18 @@
         <div class="row">
 
             <div class="col-md-8">
-                <img class="img-responsive" src="http://placehold.it/750x500" alt="">
+                <img class="img-responsive" src="images/roboback2.png" alt="" onclick = diffImage(this) height = "680" width = "1400"/>
             </div>
 
             <div class="col-md-4">
-                <h3>Project Description</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing et, interdum nec metus. Mauris ultricies, justo eu convallis placerat, felis enim.</p>
-                <h3>Project Details</h3>
+                <h3>NBCPlayer</h3>
+                <p> Main application screen. I remade the design for this many times. <i> many. times. </i> Created using PyQT5, OpenCV, Sci-kit Learn, VLC wrappers. </i></p>
+                <h3>Features</h3>
                 <ul>
-                    <li>Lorem Ipsum</li>
-                    <li>Dolor Sit Amet</li>
-                    <li>Consectetur</li>
-                    <li>Adipiscing Elit</li>
+                    <li>Standard Video Player Features (duh)</li>
+                    <li>Frame by Frame Parsing</li>
+                    <li>Video Marking Features Including Character Recognition</li>
+                    <li>Video Notetaking Capabilities</li>
                 </ul>
             </div>
 
@@ -114,31 +105,19 @@
         <div class="row">
 
             <div class="col-lg-12">
-                <h3 class="page-header">Related Projects</h3>
+                <h3 class="page-header">Different Views</h3>
             </div>
 
-            <div class="col-sm-3 col-xs-6">
-                <a href="#">
-                    <img class="img-responsive portfolio-item" src="http://placehold.it/500x300" alt="">
-                </a>
+            <div class="col-sm-4 col-xs-6">
+                <img class="img-responsive portfolio-item" src="images/analysis.png" alt="">
             </div>
 
-            <div class="col-sm-3 col-xs-6">
-                <a href="#">
-                    <img class="img-responsive portfolio-item" src="http://placehold.it/500x300" alt="">
-                </a>
+            <div class="col-sm-4 col-xs-6">
+                <img class="img-responsive portfolio-item" src="images/marking.png" alt="">
             </div>
 
-            <div class="col-sm-3 col-xs-6">
-                <a href="#">
-                    <img class="img-responsive portfolio-item" src="http://placehold.it/500x300" alt="">
-                </a>
-            </div>
-
-            <div class="col-sm-3 col-xs-6">
-                <a href="#">
-                    <img class="img-responsive portfolio-item" src="http://placehold.it/500x300" alt="">
-                </a>
+            <div class="col-sm-4 col-xs-6">
+                <img class="img-responsive portfolio-item" src="images/roboback.png" alt="">
             </div>
 
         </div>
@@ -150,7 +129,7 @@
         <footer>
             <div class="row">
                 <div class="col-lg-12">
-                    <p>Copyright &copy; Your Website 2014</p>
+                    <p>NBC Universal &copy; Michael Wang 2016</p>
                 </div>
             </div>
             <!-- /.row -->
@@ -164,6 +143,9 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
+
+    <!-- My function -->
+    <script src="js/replaceimage.js"></script>
 
 </body>
 
