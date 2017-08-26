@@ -83,14 +83,12 @@
                     </a>
                 </li>
                 <li>
-                    <a class = "smoothScroll" href="#overview"><font color = "white">Overview</font></a>
+                    <a class = "smoothScroll" href="#env_diagrams"><font color = "white">Env Diagrams</font></a>
                 </li>
                 <li>
-                    <a class = "smoothScroll" href="#tips"><font color = "white">Tips</font></a>
+                    <a class = "smoothScroll" href="#runtime"><font color = "white">Runtime</font></a>
                 </li>
-                <li>
-                    <a class = "smoothScroll" href="#problems"><font color = "white">Problems</font></a>
-                </li>
+                
             </ul>
         </div>
         <!-- /#sidebar-wrapper -->
@@ -100,17 +98,57 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 style="text-align:center; font-family:rockwell" id = "overview"><u>RUNTIME</u></h1>
+
+
+                    	<h1 style="text-align:center; font-family:rockwell" id = "env_diagrams"><u>ENVIRONMENT DIAGRAMS</u></h1>
+                    	<br />
+                    	<p> To begin, let's answer some questions: </p>
+                    	<p><b> But Michael, why are we learning this? </b><p>
+                    	<p> Sometimes, code can get complicated. Environment diagrams will help you visualize which stack frames have which variables and give you information about the current state of the functions you're executing. </p>
+                    	<p><b> Does this come in handy in real life? </b><p>
+                    	<p> Our problems are purposefully tricky and convuluted. This is so you get really good at it. Once you get enough practice, you'll be able to mentally apply this knowledge of environment diagrams in the code base at any tech company you're working at. In my personal experience, it has come in handy in other CS courses as well as interviews (!!)</p>
+                    	<p><b> I don't wanna do thi- </b><p>
+                    	<p> wasn't a question. let's start! </p>
+                    	</br>
+                    	<p><b> Work it out with pencil and paper first, then copy and paste into <a href="http://www.pythontutor.com/visualize.html#mode=edit"> pythontutor </a> for the answer ;~)</b></p>
+
+<pre>def listenup(<var>oski</var>):
+    count = 0
+    if not <var>oski</var>:
+        return count
+    else:
+        count += max(len(<var>oski</var>[count]), len(<var>oski</var>))
+        def denero(x, y):
+            return lambda z, h: y + h
+        if count * 2 == len(<var>oski</var>[0] + <var>oski</var>[-1]):
+            return denero(len(<var>oski</var>), <var>oski</var>[1])
+        return listenup(<var>oski</var>[::-1][0])
+    
+me = listenup(["I", "Love", "Lists"])
+you = listenup(["You", "Also", "Love", "Lists"])
+print(me(you(me(you, "None"), "2"), "denero"))
+</pre>
+
+
+
+
+</br>
+</br>
+
+
+
+
+                        <h1 style="text-align:center; font-family:rockwell" id = "runtime"><u>RUNTIME</u></h1>
                         <br />
                         <p>Runtime (Synonymous with 'Orders of Growth'), is the term used to describe the efficiency of various algorithms. In 61A, you'll develop an intuitive sense for how much it "costs" to run through a particular function using Big-O/Theta (for our purposes, we'll treat these as synonymous terms) notation.</p>
 
                         <p> If you've regularly attended discussion *cough* <b>please go</b> *cough*, you'll probably be familiar with the pertinent common orders of runtimes. If not, here's some review. They're listed from fastest runtime to slowest: 
                         <p style = "white-space: pre">
-\(\Theta(1)\)                                       <b>Constant</b>
-\(\Theta(log(N))\)                           <b>Logarithmic</b>
-\(\Theta(N)\)                                     <b>Linear</b>
-\(\Theta(N^2), \Theta(N^3)\), <b>etc...</b>        <b>Polynomial time</b>
-\(\Theta(2^N)\)                                    <b>Exponential Time</b>
+							\(\Theta(1)\)                                        <b>Constant</b>
+							\(\Theta(log(N))\)                              <b>Logarithmic</b>
+							\(\Theta(N)\)                                       <b>Linear</b>
+							\(\Theta(N^2), \Theta(N^3)\), <b>etc...</b>            <b>Polynomial time</b>
+							\(\Theta(2^N)\)                                     <b>Exponential Time</b>
                         </p>
                         <p> Sometimes you'll even run into some runtimes that are combinations or variations of the common orders, like \(\Theta(Nlog(N)), \Theta(N^N), \Theta(4^N)\), or even \(\Theta(N!)\). Scared yet? You probably won't need to be too concerned with some crazy variation (until 61B that is :^) ), but if it comes up on an exam, hopefully you'll have a better sense of identifying the tricky ones after you browse some of the problems listed below. Let's start by looking at a simple problem: </p>
 <pre> def printer(<var>N</var>):
@@ -131,7 +169,7 @@
                         \Theta(N)\). Cue cool topic transition...</p>
                             <br/>
 
-                        <h1 style = "text-align: center" id="tips"><u>TIPS</u> </h1>
+                        <h3 style = "text-align: center" id="tips"><u>TIPS</u> </h3>
                         
                         <p><i class="fa fa-hand-o-right"></i> Drop the constants.</p>
                             <p style = "text-indent:50px"> \(\Theta(5N)\) will simplify to \(\Theta(N)\)</p> 
@@ -149,7 +187,7 @@
                             <p style = "text-indent:50px"><b> Binary Trees </b>are usually \(\Theta(2^N)\), since they have two leaves for each tree.</p>
                             <p style = "text-indent:50px"> <b>Binary Search</b>, or instances where you find a recursive call on half of the elements at a time: \(\Theta(log(N))\)</p>
 
-                        <h1 style = "text-align: center" id="problems"><u> PROBLEMS</u></h1>
+                        <h3 style = "text-align: center" id="problems"><u> PROBLEMS</u></h3>
 <p> This code takes in an integer N, and outputs a number.
 <pre> def splitter(<var>N</var>):
     if <var>N</var> <= 0:
